@@ -1,0 +1,107 @@
+#frontPageHeader {
+    overflow: hidden;
+}
+
+#frontPageHeader .row {
+    flex-direction: column-reverse;
+
+    @include media-breakpoint-up(md) {
+        flex-direction: row;
+    }
+}
+
+#frontpageSliderContent, #frontpageSliderImg {
+    .swiper-button-next,
+    .swiper-button-prev,
+    .swiper-pagination {
+        display: none;
+        pointer-events: none;
+    }
+}
+
+#frontpageSliderContent {
+    height: 100%;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 140px;
+        padding-bottom: 90px;
+    }
+
+    .swiper-slide {
+        display: flex;
+        align-items: center;
+    }
+
+    .slideContent {
+        min-height: calc(66vh - 180px);
+    }
+}
+
+.colSliderContent {
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+        &::after {
+            content: '';
+            position: absolute;
+            top: -150px;
+            bottom: -30px;
+            left: 0;
+            right: -90px;
+            background-image: url('../../img/sliderBg.svg');
+            background-size: cover;
+            background-position: top right;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        &::after {
+            bottom: -100px;
+            right: -240px;
+        }
+    }
+}
+
+#frontpageSliderImg {
+    position: relative;
+    z-index: -1;
+    height: 320px;
+    content-visibility: auto;
+    padding-top: 30px;
+    margin: 0 -15px 25px;
+
+    @include media-breakpoint-up(md) {
+        height: 100%;
+        padding-top: 0;
+        margin: 0 -10px 25px -60px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        width: calc((((100vw - #{$containerWidth})/ 2) + 100%) + 65px);
+    }
+}
+
+.fakeNavigation, .golesSliderNav, .frontpageSliderImgNavigation {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+
+    .swiper-button-prev {
+        left: 5px;
+    }
+
+    @include media-breakpoint-up(md) {
+        bottom: 20px;
+        width: auto;
+        right: 15px;
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: static;
+        }
+    }
+}

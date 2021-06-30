@@ -1,0 +1,101 @@
+@import 'hm/hmVars';
+
+@import '~mapbox-gl/dist/mapbox-gl.css';
+@import '~@fancyapps/fancybox/dist/jquery.fancybox.min.css';
+@import '~plyr/src/sass/plyr.scss';
+
+// hm Overwrite swiper  vars
+
+$themeColor: $red;
+
+@import '~swiper/swiper.scss';
+@import '~swiper/components/navigation/navigation.scss';
+@import '~swiper/components/effect-fade/effect-fade.scss';
+
+// hm Overwrite Bootstrap vars
+$body-bg: $white;
+$body-color: $black;
+
+// Required Bootstrap parts
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// Optional Bootstrap parts
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/utilities';
+
+// hm parts
+@import 'hm/hmFonts';
+@import 'hm/hmInteractions';
+@import 'hm/hmUtilities';
+@import 'hm/hmScrollbar';
+@import 'hm/hmHeader';
+@import 'hm/hmFooter';
+@import 'hm/hmNav';
+@import 'hm/hmMap';
+@import 'hm/hmLayout';
+@import 'hm/hmWordpress';
+@import 'hm/hmForm';
+
+// Plguins
+@import 'plugins/swiper';
+
+// Blocks
+@import 'blocks/gallerySlider';
+@import 'blocks/video';
+@import 'blocks/faqs';
+@import 'blocks/infoBox';
+@import 'blocks/coreImageStyles';
+
+// hm template parts
+@import 'template-parts/ownHeader';
+@import 'template-parts/imgText';
+@import 'template-parts/social';
+@import 'template-parts/contactBar';
+
+// Frontapge
+@import 'template-parts/frontpage/header';
+@import 'template-parts/frontpage/about';
+@import 'template-parts/frontpage/goles';
+@import 'template-parts/frontpage/projects';
+@import 'template-parts/frontpage/insta';
+@import 'template-parts/frontpage/member';
+@import 'template-parts/frontpage/bottle';
+
+// Posts
+@import 'template-parts/news/postContent';
+@import 'template-parts/events/postContent';
+@import 'template-parts/single/post';
+@import 'template-parts/pagination';
+
+// bellow Post
+@import 'template-parts/bellowPost/similarPosts';
+
+// Team
+@import 'template-parts/team/member';
+
+// Spenden
+@import 'template-parts/donate/donate';
+
+// Volunteers
+@import 'template-parts/volunteer/volunteerMap';
+
+// Downloads
+@import 'template-parts/downloads/downloadList';
+@import 'template-parts/downloads/downloadGrid';
+
+// Page
+@import 'template-parts/page/page';
+@import 'template-parts/page/team';
+@import 'template-parts/page/jobs';
+@import 'template-parts/page/actions';
+@import 'template-parts/page/reports';
+
+//Footer
+@import 'template-parts/footer/family';
+@import 'template-parts/footer/newsletter';
+@import 'template-parts/footer/various';
+

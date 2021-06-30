@@ -1,0 +1,29 @@
+#yearlyReports {
+    margin-bottom: -20px;
+
+    .reportContainer {
+        margin-bottom: 20px;
+
+        img {
+            margin: 0;
+        }
+
+        .reportTitle {
+            position: relative;
+            z-index: 1;
+            padding: 13px 20px;
+            margin: -30px 15px 0;
+            text-align: center;
+            transition: background-image .3s ease;
+            @include memberInfoBg;
+            @include bold;
+        }
+
+        &:hover {
+            .reportTitle {
+                color: $white;
+                @include memberInfoBgBlue;
+            }
+        }
+    }
+}

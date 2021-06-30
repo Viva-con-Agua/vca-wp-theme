@@ -1,0 +1,11 @@
+.donateNow {
+    position: absolute;
+    top: 320px;
+    left: 30px;
+}
+
+@include media-breakpoint-up(md) {
+    .donateNow {
+        display: none;
+    }
+}

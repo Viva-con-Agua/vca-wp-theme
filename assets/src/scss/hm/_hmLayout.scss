@@ -1,0 +1,19 @@
+.wrapper, body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    padding-top: 147px;
+}
+
+.container {
+    @include media-breakpoint-up(md) {
+        max-width: $containerWidth;
+    }
+    @include media-breakpoint-up(lg) {
+        max-width: $containerWidth;
+    }
+    @include media-breakpoint-up(xl) {
+        max-width: $containerWidth;
+    }
+}

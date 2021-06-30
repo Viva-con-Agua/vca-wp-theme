@@ -1,0 +1,107 @@
+.page-template-template-team-php {
+    #bigHeaderWrapper .bigHeader {
+        min-height: auto;
+    }
+}
+
+.teamContent {
+    position: relative;
+    z-index: 1;
+    padding: 45px 15px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -15px;
+        right: -15px;
+        z-index: -1;
+        background-image: url('../../img/contentBg.svg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+}
+
+.teamImg {
+    position: relative;
+    left: 0;
+    flex: 0 0 100%;
+
+
+    .name {
+        position: absolute;
+
+        p {
+            position: absolute;
+            display: block;
+            padding: 5px 15px;
+            background-image: url('../../img/memberInfoBg.svg');
+            background-size: 100% 100%;
+            color: $darkBlue;
+            bottom: 5px;
+            transform: translate(-50%, 0);
+            margin: 0;
+        }
+
+        svg {
+            position: absolute;
+            bottom: auto;
+            top: 5px;
+            transform: translate(-50%, 0) rotate(180deg);
+        }
+
+        &.odd {
+            svg {
+                path {
+                    fill: $darkBlue;
+                }
+            }
+        }
+
+        &.turn {
+            svg {
+                transform: translate(-50%, 0) rotate(180deg) scale(-1, 1);
+            }
+        }
+
+        &.bottom {
+            p {
+                top: 5px;
+                bottom: auto;
+            }
+
+            svg {
+                bottom: 5px;
+                top: auto;
+                transform: translate(-50%, 0);
+            }
+
+            &.turn {
+                svg {
+                    transform: translate(-50%, 0) scale(-1, 1);
+                }
+            }
+        }
+    }
+
+    img {
+        margin: 0;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .teamContent {
+        padding: 60px 45px 60px 15px;
+
+        &::after {
+            left: -30px;
+            right: 0;
+        }
+    }
+
+    .teamImg {
+        left: -40px;
+        flex: 0 0 calc(100% + 40px);
+    }
+}

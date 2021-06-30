@@ -1,0 +1,60 @@
+#projects {
+    position: relative;
+
+    img {
+        margin: 0;
+    }
+}
+
+.projectsContentContainer {
+    position: relative;
+    width: 100%;
+    margin-top: -20px;
+}
+
+.projectsTitle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-image: linear-gradient($white, rgba($white, 0));
+}
+
+.projectsContent {
+    position: relative;
+    z-index: 1;
+
+    h2, h3 {
+        @include headlineLine;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -90px;
+        left: -70px;
+        bottom: -80px;
+        z-index: -2;
+        @include imgBg;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        right: -50px;
+        bottom: -50px;
+        z-index: -1;
+        background-color: $blue;
+        clip-path: polygon(0 1%, 40% 3%, 99% 0%, 100% 10%, 99% 76%, 100% 98%, 30% 100%, 0% 98%);
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .projectsContentContainer {
+        margin-top: -60px;
+    }
+}

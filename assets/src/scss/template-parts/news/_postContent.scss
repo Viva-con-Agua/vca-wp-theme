@@ -1,0 +1,89 @@
+.postContent {
+    height: 100%;
+    background-color: $lightBlue;
+    transition: background-color .3s ease;
+
+    & > a {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    h4, p {
+        transition: color .3s ease;
+    }
+
+    h4, p, .btn {
+        margin-right: 20px;
+        margin-left: 20px;
+
+        @include media-breakpoint-up(md) {
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+    }
+
+    h4 {
+        margin-top: 18px;
+
+        @include media-breakpoint-up(md) {
+            margin-top: 28px;
+        }
+    }
+
+    p, .postCat {
+        font-size: .8125em;
+        color: $black;
+    }
+
+    img {
+        margin: 0;
+    }
+
+    .postCat {
+        position: absolute;
+        top: 20px;
+        right: 2px;
+        z-index: 0;
+        padding: 6px 15px;
+        color: $white;
+        @include bold;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../img/catBg.gif');
+            background-size: 100% 100%;
+            z-index: -1;
+        }
+    }
+
+    .btnContainer {
+        padding: 15px 0 10px;
+    }
+
+    &:hover {
+        background-color: $blue;
+
+        p, h4 {
+            color: $white;
+        }
+
+        .btn.secondary {
+            @include btnSecondaryHover;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .btnContainer {
+            padding: 15px 0 20px;
+        }
+    }
+}

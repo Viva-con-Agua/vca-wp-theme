@@ -1,0 +1,75 @@
+#bottle {
+    .bottleContainer {
+        position: relative;
+        z-index: 0;
+        transform: translate(0, -100px);
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin: 0 auto -110px;
+
+        @include media-breakpoint-up(md) {
+            width: auto;
+            transform: translate(0, 140px);
+            margin: -280px auto 0;
+        }
+
+        .bottleImg {
+            background-image: url('../../img/bottle.svg');
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+            max-height: 630px;
+
+            .bottle {
+                max-height: 760px;
+                width: 50%;
+                height: 100%;
+                transform: rotate(0deg);
+                transition: transform .6s cubic-bezier(0, 1.1, .68, 1.07) .4s;
+                transform-origin: 100% 100%;
+
+                @include media-breakpoint-up(md) {
+                    width: auto;
+                }
+            }
+        }
+
+        &::after, &::before {
+            @include absolute;
+            background-size: contain;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        &::after {
+            content: '';
+            background-image: url('../../img/swipteWhite.svg');
+            z-index: -1;
+            pointer-events: none;
+            transform: scale(1.5);
+
+            @include media-breakpoint-up(md) {
+                transform: scale(1);
+            }
+        }
+
+        &::before {
+            content: '';
+            background-image: url('../../img/pointSprayWhite.gif');
+            z-index: -2;
+            transform: scale(2.1);
+            pointer-events: none;
+
+            @include media-breakpoint-up(md) {
+                transform: scale(1.8);
+            }
+        }
+    }
+
+    &.vis {
+        .bottleContainer .bottleImg .bottle {
+            transform: rotate(19deg);
+        }
+    }
+}

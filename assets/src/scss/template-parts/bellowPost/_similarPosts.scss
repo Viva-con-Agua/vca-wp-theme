@@ -1,0 +1,17 @@
+#similarPosts {
+    .row {
+        .mb-2 {
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    #similarPosts .row .mb-2 {
+        &:last-child {
+            margin-bottom: 30px !important;
+        }
+    }
+}

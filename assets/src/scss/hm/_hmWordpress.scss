@@ -1,0 +1,276 @@
+img, .videoBlock, .wp-block-image {
+    width: 100%;
+    height: auto;
+    margin: $grid-gutter-width/2 0;
+
+    &.aligncenter {
+        &.size-medium, &.size-thumbnail {
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}
+
+.wp-block-image {
+
+    .alignleft {
+        float: none !important;
+        margin: 0 !important;
+    }
+
+    img {
+        margin: 0;
+    }
+}
+
+blockquote {
+    border: solid 1px $red;
+    padding: $grid-gutter-width/2;
+    margin-left: 0;
+    margin-right: 0;
+    display: grid;
+
+    p {
+        font-size: 1.4em;
+        font-style: italic;
+        margin-bottom: 0;
+
+        &:after, &:before {
+            content: '"';
+        }
+    }
+
+    cite, p:last-child {
+        font-size: .85em;
+        margin: 0;
+
+        &:after, &:before {
+            content: none;
+        }
+    }
+}
+
+#theContent {
+    .wp-block-quote.is-large, .wp-block-quote.is-style-large {
+        padding: $grid-gutter-width/2;
+        margin: $grid-gutter-width/2 0;
+
+        p {
+            font-size: 2em;
+            line-height: 1.2;
+            margin-bottom: $grid-gutter-width/4;
+        }
+
+        cite {
+            font-size: 1em;
+        }
+    }
+}
+
+
+// Animation properties
+$anim-width: 200px;
+$anim-height: 250px;
+$anim-duration: 4s;
+
+// Splash properties
+$splash-width: $anim-width;
+$splash-height: $anim-width / 2;
+$splash-origin: $splash-height / 2;
+$water-level: $splash-origin;
+
+// Drip properties
+$drip-size: 15px;
+$drip-pos: ($splash-width / 2) - ($drip-size / 2);
+$drip-rebound: 40px;
+$drip-re-size: 5px;
+$drip-re-pos: ($splash-width / 2) - ($drip-re-size / 2);
+
+// Colours
+$c-drip: #fff;
+$c-splash: #fff;
+$c-bg: #43a2ce;
+
+body.error404 {
+    background-color: $c-bg;
+
+    #bigHeaderWrapper .bigHeader .bigHeaderContent .inner h1 {
+        text-align: center;
+        color: $white;
+    }
+
+    #theContent {
+        text-align: center;
+    }
+}
+
+.drip {
+    width: $anim-width;
+    height: $anim-height;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        left: $drip-pos;
+        top: 0;
+        content: "";
+        width: $drip-size;
+        height: $drip-size;
+        background-color: $c-drip;
+        border-radius: 50%;
+        opacity: 0;
+        animation: drip $anim-duration ease infinite;
+    }
+
+    &:after {
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 0px;
+        height: 0px;
+        border: solid 4px $c-drip;
+        border-radius: 50%;
+        opacity: 0;
+        animation: splash $anim-duration ease infinite;
+    }
+}
+
+@keyframes drip {
+    10% {
+        top: 0;
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.24, 0, 0.76, 0.14);
+    }
+
+    25% {
+        opacity: 1;
+        top: $anim-height - $water-level;
+        animation-timing-function: ease-out;
+        width: $drip-size;
+        height: $drip-size;
+        left: $drip-pos;
+    }
+
+    30% {
+        opacity: 1;
+        top: $anim-height - ($water-level + $drip-rebound);
+        width: $drip-re-size;
+        height: $drip-re-size;
+        animation-timing-function: ease-in;
+        left: $drip-re-pos;
+    }
+
+    33% {
+        top: $anim-height - $water-level;
+        opacity: 0;
+        animation-timing-function: ease-out;
+        left: $drip-re-pos;
+    }
+
+    33.001% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes splash {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        bottom: $splash-height / 2;
+        left: $splash-width / 2;
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+    }
+
+    25.001% {
+        opacity: 1;
+    }
+
+    33% {
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        width: $splash-width;
+        height: $splash-height;
+    }
+
+    33.001% {
+        bottom: $splash-height / 2;
+        left: $splash-width / 2;
+        opacity: 1;
+        width: 0px;
+        height: 0px;
+    }
+
+    43% {
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        width: $splash-width;
+        height: $splash-height;
+    }
+
+    43.001% {
+        opacity: 0;
+    }
+}
+
+
+@include media-breakpoint-up(md) {
+    img, .videoBlock, .wp-block-image {
+        &.size-thumbnail {
+            max-width: 150px;
+        }
+
+        &.size-medium {
+            max-width: 500px;
+        }
+
+        &.size-large {
+            max-width: 820px;
+        }
+
+        &.alignleft, &.alignright, .alignleft, .alignright {
+            width: calc(50% + 160px);
+
+            &.is-resized {
+                width: auto;
+            }
+        }
+
+        &.alignleft, .alignleft {
+            float: left !important;
+            margin-right: 40px !important;
+            margin-left: -200px !important;
+
+            &.size-medium, &.size-thumbnail {
+                float: left;
+                margin-right: $grid-gutter-width/2;
+            }
+        }
+
+        &.alignright, .alignright {
+            float: right !important;
+            margin-left: 40px !important;
+            margin-right: -200px !important;
+
+            &.size-medium, &.size-thumbnail {
+                float: right;
+                margin-left: $grid-gutter-width/2;
+            }
+        }
+    }
+}

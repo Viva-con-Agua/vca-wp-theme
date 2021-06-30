@@ -1,0 +1,72 @@
+#contactBar {
+    position: fixed;
+    z-index: 99;
+    bottom: 120px;
+    right: -5px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .45s cubic-bezier(.43, .29, 0, 1.03);
+    transform: translate(100%, 0);
+
+    li {
+        list-style: none;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-bottom: 15px;
+        pointer-events: none;
+
+        .contactLink {
+            background-image: url('../../img/footerBg.svg');
+            background-size: 100% 100%;
+            padding: 8px 30px 8px 10px;
+            transform: translate(calc(100% + -70px), 0);
+            transition: transform .5s cubic-bezier(.26, .38, .08, 1.1);
+            pointer-events: all;
+
+            &:hover {
+                transform: translate(0, 0);
+
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+
+        a {
+            @include bold;
+            text-transform: uppercase;
+            color: $white;
+        }
+
+        span {
+            display: inline-block;
+            margin: 0;
+            transform: translate(0, 2px);
+            transition: opacity .3s ease;
+            opacity: 0;
+        }
+
+        img {
+            height: 30px;
+            width: auto;
+            margin: 0 6px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &.vis {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0,0);
+    }
+
+    @include media-breakpoint-up(md) {
+        bottom: 20vh;
+    }
+}

@@ -1,0 +1,105 @@
+.swiper-container {
+    opacity: 0;
+    transition: opacity .3s ease;
+
+    &.vis {
+        opacity: 1;
+    }
+}
+
+.swiper-button-prev, .swiper-button-next {
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: 85px;
+    width: 55px;
+    height: 55px;
+    background-image: url('../../img/swiperArrowBg.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: background-color .45s ease;
+    margin-left: 10px;
+
+    &::after {
+        content: url('../../img/swiperLeft.svg');
+        width: 16px;
+        margin-top: -8px;
+        transition: transform .4s cubic-bezier(.32, .65, .14, 1.35);
+    }
+
+    &:active, &:focus, &:hover {
+        outline: none !important;
+
+        &::after {
+            transform: translate(-3px,0);
+        }
+    }
+}
+
+.swiper-button-next {
+    right: 10px;
+
+    &::after {
+        content: url('../../img/swiperRight.svg');
+    }
+
+    &:active, &:focus, &:hover {
+        &::after {
+            transform: translate(3px,0);
+        }
+    }
+}
+
+.swiper-pagination {
+    height: 60px;
+    display: none;
+
+    .swiper-pagination-bullet {
+        position: relative;
+        margin-right: 10px;
+
+        &::before {
+            @include headline;
+            content: attr(data-number);
+            font-size: 2.18em;
+            color: $white;
+            transition: color .3s ease;
+        }
+
+        svg {
+            position: absolute;
+            bottom: -10px;
+            left: -5px;
+            transform: translate(0, 50%);
+
+            path {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 100;
+                transition: stroke-dashoffset .6s ease;
+            }
+        }
+
+        &.swiper-pagination-bullet-active {
+            &::before {
+                color: $darkBlue;
+            }
+
+            svg {
+                path {
+                    stroke-dashoffset: 0;
+                    transition: stroke-dashoffset .6s cubic-bezier(.65, .66, 0, 1.3);
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .swiper-pagination {
+        display: block;
+    }
+
+    .swiper-button-next {
+        right: 30px;
+    }
+}

@@ -1,0 +1,25 @@
+.socialAccounts {
+    display: flex;
+
+    li {
+        margin: 0;
+        padding-right: 15px;
+
+        svg {
+            path {
+                transition: fill .3s ease;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            svg path {
+                transition-duration: .0s;
+                fill: $darkBlue;
+            }
+        }
+    }
+}

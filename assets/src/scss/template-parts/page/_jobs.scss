@@ -1,0 +1,17 @@
+#offer {
+    @include styledList;
+    @include blueBg;
+
+    ul li {
+        list-style: url('../../img/offerList.svg');
+        &::marker {
+            margin-top: 5px;
+        }
+    }
+
+    .notOffer {
+        ul li {
+            list-style: url('../../img/offerNotList.svg');
+        }
+    }
+}

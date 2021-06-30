@@ -1,0 +1,277 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: $logoMaxHeight;
+    z-index: 1000;
+    background-color: $blue;
+    transition: transform .45s cubic-bezier(.37, .51, .07, 1.04) !important;
+
+    #headerSvg {
+        position: absolute;
+        left: -10%;
+        right: 0;
+        bottom: 9px;
+        transition: all .6s cubic-bezier(.3, .7, 0, 1.62);
+        transform: scale(1,.65) translate(0, 100%);
+        transform-origin: 0 100%;
+        width: 120%;
+        pointer-events: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 7px;
+        bottom: 0;
+        background-color: $blue;
+        z-index: 1;
+    }
+
+    &.headroom {
+        will-change: transform;
+        transition: transform 200ms linear;
+    }
+
+    // &.headroom--pinned {
+    //     transform: translateY(0%);
+    // }
+
+    &.headroom--unpinned {
+        transform: translate(0, -80px);
+
+        .logo svg {
+            transform: scale(.7) translate(0, 23px);
+        }
+
+        #headerSvg {
+            transform: scale(1, .65) translate(0, 100%);
+        }
+    }
+
+    &:hover {
+        #headerSvg {
+            transform: scale(1,.4) translate(0, 100%);
+            width: 140%;
+            left: -20%;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        min-height: $logoMobileMaxHeight;
+
+        &.headroom--unpinned {
+            transform: translate(0, -60px);
+
+            .navWrap {
+                transform: translate(0, 6px);
+            }
+
+            .logo svg {
+                transform: scale(.6) translate(0, 53px);
+            }
+        }
+    }
+}
+
+.navWrap {
+    position: relative;
+    z-index: 0;
+    transition: transform .45s cubic-bezier(.37, .51, .07, 1.04);
+
+    @include media-breakpoint-up(md) {
+        z-index: 1;
+    }
+}
+
+.subHeader {
+    background-color: $darkBlue;
+    padding: 10px 15px;
+    font-size: 13px;
+
+    p, a {
+        color: $white;
+    }
+
+    a {
+        text-transform: uppercase;
+
+        @include bold;
+    }
+
+    .link {
+        margin-bottom: 10px;
+
+        a {
+            svg {
+                left: -5px;
+                bottom: -9px;
+                width: 100%;
+            }
+        }
+
+        img {
+            position: relative;
+            bottom: -14px;
+            display: inline-block;
+            margin-left: 10px;
+            margin-top: -14px;
+            width: 30px;
+        }
+    }
+
+    .langSwitcher {
+        padding-top: 1px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+
+                &.wpml-ls-current-language {
+                    display: block;
+
+                    & > a {
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            background-image: url(../../img/swiperLeft.svg);
+                            background-position: center;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            transform: rotate(-90deg) translate(-1px, 0);
+                            margin-left: 1px;
+                            width: 21px;
+                            height: 13px;
+                            transition: transform .3s ease;
+                        }
+
+                        &:hover {
+
+                            &::after {
+                                transform: rotate(-90deg) translate(-3px, 0);
+                            }
+                        }
+                    }
+                }
+
+                .sub-menu {
+                    position: absolute;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .3s ease;
+                    transform: translate(0, 25px);
+                    background-color: $blue;
+                    padding: 5px;
+                    box-shadow: 0 0 15px 5px rgba($black, .2);
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: -5px;
+                        width: 10px;
+                        height: 10px;
+                        transform: rotate(45deg) translate(0,50%);
+                        background-color: $blue;
+                    }
+
+                    li {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .sub-menu {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(0,15px);
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: 15px 60px;
+        font-size: inherit;
+
+        .link {
+            margin-bottom: 0;
+            margin-top: 2px;
+
+            img {
+                bottom: -10px;
+            }
+        }
+
+        .member a::after {
+            width: 43px;
+        }
+    }
+}
+
+#headBar {
+    display: flex;
+    justify-content: center;
+    padding: 0 60px;
+
+    @include media-breakpoint-up(md) {
+        justify-content: space-between;
+    }
+
+    a {
+        margin: 0;
+    }
+}
+
+.logo {
+    position: relative;
+    z-index: 2;
+    margin: 15px 0;
+    transition: transform .45s cubic-bezier(.63,.49,0,2.1);
+
+    svg {
+        transition: transform 0.45s cubic-bezier(0, 0.22, 0.03, 1.18);
+        height: 50px;
+        max-width: 100px;
+    }
+
+    img {
+        width: $logoMobileWidth;
+        height: auto;
+        max-height: $logoMobileMaxHeight;
+
+        @include media-breakpoint-up(md) {
+            width: $logoWidth;
+            max-height: $logoMaxHeight;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.05,1.05);
+    }
+
+    @include media-breakpoint-up(md) {
+        transform: translateY(0);
+        background-image: url('../../img/instaBg.svg');
+        background-size: 100% 100%;
+        padding: 15px 20px;
+        margin: -45px 0 0 -20px;
+
+        svg {
+            height: 72px;
+            max-width: 140px;
+        }
+    }
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}

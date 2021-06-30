@@ -1,0 +1,62 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @include headline;
+    font-size: 2em;
+
+    span, a {
+        padding-right: 10px;
+        margin: 0;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    .next, .prev {
+        position: relative;
+        display: inline-block;
+        color: transparent;
+        white-space: nowrap;
+        width: 45px;
+        height: 45px;
+        background-image: url(../../img/swiperArrowBg.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: background-color 0.45s ease;
+        margin-left: 10px;
+        margin-bottom: 0;
+
+        &::after {
+            content: url(../../img/swiperLeft.svg);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(180deg);
+            width: 16px;
+            transition: transform .4s cubic-bezier(.32, .65, .14, 1.35);
+        }
+
+        &:hover {
+            &::after {
+                transform: translate(-30%, -50%) rotate(180deg);
+            }
+        }
+    }
+
+    .prev {
+        margin-right: 10px;
+        margin-left: 0;
+
+        &::after {
+            transform: translate(-50%, -50%) rotate(0);
+        }
+
+        &:hover {
+            &::after {
+                transform: translate(-70%, -50%) rotate(0);
+            }
+        }
+    }
+}

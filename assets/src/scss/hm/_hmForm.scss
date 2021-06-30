@@ -1,0 +1,57 @@
+input, textarea {
+    width: 100%;
+    min-height: 55px;
+    color: $blue;
+    @include bold;
+    background: none;
+    border-radius: 0;
+    border: none;
+    background-image: url('../../img/inputBg.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 18px 30px;
+    outline: none;
+    transition: transform .3s ease;
+
+    &:hover, &:active, &:focus {
+        transform: scale(.99, .99);
+    }
+}
+
+::placeholder {
+    color: $blue;
+}
+
+input {
+    &[type='submit'] {
+        position: relative;
+        z-index: 1;
+        width: 55px;
+        height: 55px;
+        background-image: url('../../img/inputSubmitBg.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        white-space: nowrap;
+        transform-origin: 0 50%;
+        transition: transform .3s cubic-bezier(.32, .58, 0, 1.41);
+
+        &:active, &:focus, &:hover {
+            outline: none !important;
+            transform: scale(.95, .95);
+        }
+    }
+}
+
+#mc_embed_signup_scroll {
+    display: flex;
+    br {
+        display: none;
+    }
+
+    input {
+        &[type='submit'] {
+            margin-left: -10px;
+        }
+    }
+}

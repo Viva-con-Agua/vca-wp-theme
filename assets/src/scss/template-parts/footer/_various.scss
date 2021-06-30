@@ -1,0 +1,74 @@
+.subFooter {
+    h4 {
+        &.headlineLine {
+            margin-bottom: 30px;
+
+            &::after {
+                bottom: -20px;
+            }
+        }
+    }
+
+    #contact-menu, #cat1-menu, #cat2-menu {
+        li {
+            margin-bottom: 15px;
+
+            a {
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    width: calc(100% + 20px);
+                    left: -10px;
+                    bottom: -9px;
+
+                    path {
+                        transition: stroke-dashoffset .45s cubic-bezier(.7, .46, .02, 1.03);
+                        stroke-dasharray: 200;
+                        stroke-dashoffset: 200;
+                    }
+                }
+
+                &:hover {
+                    svg path {
+                        stroke-dashoffset: 400;
+                    }
+                }
+            }
+        }
+    }
+
+    .social {
+        margin-bottom: 45px;
+    }
+
+    .footerOurFamliySmall {
+        .familyImg {
+            width: 33.33333%;
+
+            @include media-breakpoint-up(md) {
+                width: auto;
+            }
+
+            img {
+                margin: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.footerEnd {
+    text-align: center;
+}
+
+@include media-breakpoint-up(md) {
+    .footerEnd {
+        text-align: left;
+    }
+}
+
+

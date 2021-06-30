@@ -1,0 +1,220 @@
+#volunteerMap {
+    height: 100vh;
+
+    @include media-breakpoint-up(lg) {
+        height: 700px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        height: 800px;
+    }
+
+    &:focus, & * {
+        outline: 0;
+    }
+
+    .marker {
+        background-image: url('../../img/volunteerMapMarker.svg');
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        &:hover {
+            background-image: url('../../img/volunteerMapMarker__active.svg');
+        }
+    }
+
+    .mapboxgl-popup {
+        max-width: 250px !important;
+
+        @include media-breakpoint-up(md) {
+            max-width: 400px !important;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: 500px !important;
+        }
+    }
+
+    .mapboxgl-popup-anchor-top {
+        margin-top: -35px;
+    }
+
+    .mapboxgl-popup-anchor-top-right, .mapboxgl-popup-anchor-top-left {
+        margin-top: -25px;
+    }
+
+    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: $blue;
+        transform: translateY(5px);
+    }
+
+    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: $blue;
+        border-bottom-color: $blue;
+    }
+
+    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: $blue;
+        transform: translateX(7px);
+    }
+
+    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: $blue;
+        transform: translateX(-7px);
+    }
+
+    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+        display: none;
+    }
+
+    .mapboxgl-popup-content {
+        text-align: left;
+        color: $white;
+        font-family: $font-family-base;
+        background: transparent;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+
+        .popupContentContainer {
+            position: relative;
+            background: url('../../img/mapPopupBackground.svg');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            padding: 20px;
+
+            @include media-breakpoint-up(md) {
+                flex-direction: row;
+                padding: 20px 40px;
+            }
+
+            .popupTitle {
+                font-weight: 700;
+            }
+
+            .popupImage {
+                margin-bottom: 15px;
+
+                img {
+                    margin: 0;
+                }
+
+                @include media-breakpoint-up(md) {
+                    margin-bottom: 0;
+                    width: 50%;
+                }
+            }
+
+            .volunteerTeamContent {
+
+                @include media-breakpoint-up(md) {
+                    margin-right: 15px;
+                    width: 50%;
+                }
+
+                p {
+                    margin-top: 0;
+                }
+            }
+
+            .linkBtn {
+                transition: transform .3s cubic-bezier(.37, .27, .01, 1.32);
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            .instagram {
+                position: absolute;
+                top: 25px;
+                right: 25px;
+
+                a {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('../../img/mapInstagramIcon.svg');
+                    background-size: contain;
+                }
+            }
+
+            .email {
+                position: absolute;
+                top: 60px;
+                right: 25px;
+
+                a {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    background-image: url('../../img/mapEmailIcon.svg');
+                    background-size: contain;
+                }
+            }
+        }
+    }
+
+    .mapboxgl-control-container {
+
+        .mapboxgl-ctrl-group {
+            border: 0;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .mapboxgl-ctrl button span {
+            background-size: 90%;
+        }
+
+        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in {
+            margin-bottom: 5px;
+        }
+
+        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out {
+            border: 0;
+        }
+
+        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+            background-image: url('../../img/mapZoomIn.svg');
+        }
+
+        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+            background-image: url('../../img/mapZoomOut.svg');
+        }
+
+        .mapboxgl-ctrl-group button:focus {
+            border: 0 !important;
+            box-shadow: none !important;
+            outline: none;
+        }
+    }
+}
+
+.volunteerCTAContent {
+    padding: 50px;
+    background-image: url('../../img/volunteerCTAbackground.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    & > * {
+        color: $white;
+    }
+
+    & a {
+        color: $white !important;
+    }
+
+    @include media-breakpoint-up(lg) {
+        transform: translateY(-50%);
+        margin-bottom: -50%;
+    }
+}

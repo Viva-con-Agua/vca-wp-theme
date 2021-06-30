@@ -1,0 +1,89 @@
+.galleryBlock {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.gallerySliderBlock {
+    overflow: visible;
+
+    img {
+        height: auto;
+        width: 100%;
+        margin: 0;
+    }
+
+    .swiper-slide {
+        width: auto;
+    }
+
+    .swiper-nav {
+        display: none !important;
+        position: relative;
+        height: 35px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        position: static;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        z-index: 1;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-image: url('../../img/icons/swipe.svg');
+        background-size: 70% 70%;
+        background-position: center;
+        background-color: $darkBlue;
+        background-repeat: no-repeat;
+    }
+
+    &.galleryGrid {
+        picture {
+            margin-left: 20px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .galleryBlock {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .gallerySliderBlock {
+        .swiper-nav {
+            display: flex !important;
+        }
+
+        img {
+            height: 320px;
+            width: auto;
+            margin: 0;
+        }
+
+        &.galleryGrid {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        &::after {
+            content: none;
+        }
+    }
+}

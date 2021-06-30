@@ -1,0 +1,287 @@
+// Mixins
+
+// @mixin imgCanvas {
+//     background-image: url('../../img/imgBg.svg');
+//     background-size: contain;
+//     background-position: center right;
+//     background-repeat: no-repeat;
+// }
+
+@mixin absolute {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+
+@mixin cover {
+    background-size: cover;
+    background-position: center center;
+}
+
+@mixin sideFloat($plus: 5px) {
+    width: calc((((100vw - #{$containerWidth})/ 2) + 100%) + #{$plus});
+}
+
+@mixin headlineLine() {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: url('../../img/headlineLine.svg');
+        display: block;
+        position: absolute;
+        bottom: -33px;
+        left: 2px;
+    }
+}
+
+@mixin headlineLineBlue() {
+    @include headlineLine;
+
+    &::after {
+        content: url('../../img/headlineLineBlue.svg');
+    }
+}
+
+
+@mixin sprayBlue {
+    background-image: url('../../img/sprayBlue.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin sprayWhite {
+    background-image: url('../../img/sprayWhite.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+@mixin blueBg {
+    background-image: url('../../img/blueBg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin whiteBg {
+    background-image: url('../../img/whiteBg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin imgBgBlue {
+    background-image: url('../../img/imgBgBlue.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin imgBg {
+    background-image: url('../../img/imgBg.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin memberInfoBg {
+    background-image: url('../../img/memberInfoBg.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin memberInfoBgBlue {
+    background-image: url('../../img/memberInfoBgBlue.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin styledList {
+    ul {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 25px;
+
+        li {
+            margin-bottom: 20px;
+            list-style: url('../../img/swiperRightBlue.svg');
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+.whitebg {
+    @include whiteBg;
+}
+
+// Classes
+.sideFloat {
+    @include sideFloat;
+}
+
+.blue:not(.btn), .darkBlue:not(.btn) {
+    background-color: $blue;
+
+    h1, h2, h3, h4, h5, h6, p, ul {
+        color: $white;
+    }
+}
+
+.darkBlue:not(.btn) {
+    background-color: $darkBlue;
+}
+
+.lightBlue {
+    background-color: $lightBlue;
+}
+
+.headlineLine {
+    @include headlineLine;
+}
+
+.linkLine {
+    position: relative;
+
+    svg {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 5px;
+        bottom: -5px;
+        width: 100%;
+        transition: transform .4s cubic-bezier(.31, .65, 0, 1.26);
+        transform-origin: 0 0;
+    }
+
+    &:hover {
+        svg {
+            transform: scale(1.05, 1);
+        }
+    }
+}
+
+body.page:not(.home), body.category {
+    .wrapper {
+        background-image: url('../../img/sprayBlue.jpg');
+        background-size: 100% auto;
+        background-position: top center;
+        background-repeat: repeat-y;
+    }
+}
+
+body.single:not(.home) {
+    .wrapper {
+        background-image: url('../../img/whiteBg.jpg');
+        background-size: 100% auto;
+        background-repeat: repeat-y;
+    }
+}
+
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    margin: 20px 0;
+
+    iframe, video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.embed-container {
+    max-width: 500px;
+    margin: 15px auto;
+
+    iframe, twitter-widget {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+.clear:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+// Inview Fade in
+.fadeIn, .slideIn, .fadeInRow > div, .fadeInRow > li , .fadeInRow > p {
+    opacity: 0;
+    transition: all 0s ease-out;
+    transform: translate(0,10px);
+
+    &.slideIn {
+        transform: translate(-20px,0);
+    }
+
+    &.vis {
+        transition: all .3s ease-out .15s;
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.webp {
+    #insta, #goles {
+        background-image: url(../../img/sprayBlue.jpg.webp);
+    }
+
+    #memberTeaser, #aboutTeaser {
+        background-image: url(../../img/blueBg.jpg.webp);
+    }
+
+    .whitebg {
+        background-image: url(../../img/whiteBg.jpg.webp);
+    }
+
+    #footerFamily {
+        background-image: url(../../img/sprayWhite.jpg.webp);
+    }
+}
+
+// VCA Cookie Banner Styling
+@media screen and (max-width: 45em) {
+    body {
+        .scc-widget.top .scc-modal-inner, .scc-widget.bottom .scc-modal-inner {
+            height: 80% !important;
+        }
+
+        .scc-widget .scc-modal--footer {
+            padding: 10px;
+            font-size: .8em;
+        }
+
+        .scc-inner-overflow {
+            overflow-y: auto;
+        }
+
+        .scc-modal-inner {
+            overflow: auto;
+        }
+    }
+}
+

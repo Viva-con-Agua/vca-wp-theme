@@ -1,0 +1,29 @@
+#footerFamily {
+    @include sprayWhite;
+    background-position: center 30%;
+}
+
+.ourFamily {
+    .familyImg {
+        width: 33.33333%;
+
+        img {
+            margin: 0;
+        }
+
+        a {
+            display: block;
+            transition: transform .2s cubic-bezier(.63,.49,0,2.1);
+        }
+
+        &:hover {
+            a {
+                transform: scale(1.05,1.05);
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            width: auto;
+        }
+    }
+}

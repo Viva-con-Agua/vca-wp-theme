@@ -1,0 +1,36 @@
+.actionsContainer {
+    background-image: url('../../img/contentBg.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 30px;
+
+    .actionsIframe {
+        position: relative;
+
+        iframe {
+            height: 500px;
+        }
+
+        &::after {
+            content: '';
+
+            @include imgBgBlue;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .actionsIframe {
+
+            iframe {
+                width: calc((((100vw - 1180px)/ 2) + 100%));
+                height: 340px;
+            }
+        }
+    }
+
+
+
+    @include media-breakpoint-up(lg) {
+        padding: 60px;
+    }
+}

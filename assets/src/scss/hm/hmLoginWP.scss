@@ -1,0 +1,46 @@
+@import 'hmVars';
+
+body {
+    background: $blue !important;
+}
+
+.login h1 a {
+    background-image: url('https://www.vivaconagua.org/wp-content/uploads/logo/vca_logo.png') !important;
+    background-size: 200px 55px;
+    padding-bottom: 45px;
+    width: 255px;
+}
+
+body.login div#login p#nav {
+    margin: 15px 0 0;
+    padding: 0;
+    display: inline-block;
+    text-shadow: none;
+}
+
+body.login div#login p#nav:after {
+    content: '\00a0|\00a0';
+}
+
+body.login div#login p#backtoblog {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    text-shadow: none;
+}
+
+body.login div#login p#nav a,
+body.login div#login p#nav a:active,
+body.login div#login p#nav a:visited,
+body.login div#login p#backtoblog a,
+body.login div#login p#backtoblog a:active,
+body.login div#login p#backtoblog a:visited {
+    text-decoration: none;
+    color: $black !important;
+}
+
+body.login form {
+    border-radius: 2px;
+    box-shadow: none;
+    border: 0;
+}
